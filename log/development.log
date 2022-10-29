@@ -34,3 +34,635 @@ Migrating to CreateShortUrls (20190923133432)
   [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('1889412250694455305')[0m
   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (31.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('1889412250694455305', 0)[0m
+  [1m[35m (35.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddShortCodeToShortUrls (20221029162530)
+  [1m[35m (288.2ms)[0m  [1m[35mALTER TABLE `short_urls` ADD `short_code` varchar(255)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221029162530')[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('1889412250694455305')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 16:55:53 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (43.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+SyntaxError (/app/app/controllers/short_urls_controller.rb:7: syntax error, unexpected ':', expecting ')'
+...= ShortUrl.order(:click_count :desc).limit(100)
+...                              ^):
+  
+app/controllers/short_urls_controller.rb:7: syntax error, unexpected ':', expecting ')'
+app/controllers/short_urls_controller.rb:7: syntax error, unexpected ':', expecting ')'
+app/controllers/short_urls_controller.rb:7: syntax error, unexpected ':', expecting ')'
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 16:58:12 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (34.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+Completed 400 Bad Request in 51ms (ActiveRecord: 0.0ms | Allocations: 1159)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: short_url):
+  
+app/controllers/short_urls_controller.rb:30:in `create_short_url_params'
+app/controllers/short_urls_controller.rb:11:in `create'
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 17:04:59 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+Completed 400 Bad Request in 43ms (ActiveRecord: 0.0ms | Allocations: 1049)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: short_url):
+  
+app/controllers/short_urls_controller.rb:31:in `create_short_url_params'
+app/controllers/short_urls_controller.rb:12:in `create'
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 17:07:08 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (35.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 45.6ms | Allocations: 6193)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument, String passed.):
+  
+app/controllers/short_urls_controller.rb:12:in `create'
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 17:09:34 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms | Allocations: 1049)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: shortUrl):
+  
+app/controllers/short_urls_controller.rb:31:in `create_short_url_params'
+app/controllers/short_urls_controller.rb:12:in `create'
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 17:11:45 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (19.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 1924)
+
+
+  
+NoMethodError (undefined method `permit' for "https://google.com":String):
+  
+app/controllers/short_urls_controller.rb:31:in `create_short_url_params'
+app/controllers/short_urls_controller.rb:12:in `create'
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 17:14:07 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (39.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[36mShortUrl Create (10.1ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://google.com', '2022-10-29 17:14:08.183170', '2022-10-29 17:14:08.183170')[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[35m (26.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[35m (15.5ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code'
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 68.8ms | Allocations: 10310)
+
+
+  
+NoMethodError (undefined method `lenght' for #<Array:0x000055a72b0460f0>
+Did you mean?  length):
+  
+app/models/short_url.rb:13:in `short_code'
+app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[35m (18.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (36.4ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (1.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls`[0m
+  [1m[36mShortUrl Destroy (51.4ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 1[0m
+  [1m[36mShortUrl Load (1.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 17:21:54 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[36mShortUrl Create (21.8ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://google.com', '2022-10-29 17:21:54.346803', '2022-10-29 17:21:54.346803')[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[35m (58.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[35m (15.1ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code'
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 97.3ms | Allocations: 10437)
+
+
+  
+NoMethodError (undefined method `lenght' for #<Array:0x000055f7bc4e22d0>
+Did you mean?  length):
+  
+app/models/short_url.rb:17:in `short_code'
+app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[35m (20.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (5.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (2.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls`[0m
+  [1m[36mShortUrl Destroy (16.6ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 2[0m
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 17:25:12 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[36mShortUrl Create (0.5ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://google.com', '2022-10-29 17:25:12.965374', '2022-10-29 17:25:12.965374')[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[35m (10.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:13:in `create'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code'
+  [1m[36mShortUrl Update (52.0ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`short_code` = '0' WHERE `short_urls`.`id` = 3[0m
+  ↳ app/models/short_url.rb:23:in `short_code'
+Completed 200 OK in 91ms (Views: 0.6ms | ActiveRecord: 66.3ms | Allocations: 10003)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 17:25:39 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+No template found for ShortUrlsController#index, rendering head :no_content
+Completed 204 No Content in 55ms (ActiveRecord: 0.0ms | Allocations: 1794)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 17:32:19 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (14.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (33.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (1.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+  [1m[35m (20.2ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code'
+  [1m[36mShortUrl Update (29.2ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`short_code` = '1' WHERE `short_urls`.`id` = 3[0m
+  ↳ app/models/short_url.rb:23:in `short_code'
+Completed 200 OK in 154ms (Views: 56.0ms | ActiveRecord: 73.3ms | Allocations: 8543)
+
+
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (1.3ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (1.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls`[0m
+  [1m[36mShortUrl Destroy (43.0ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 3[0m
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 17:43:13 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (2.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code'
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[36mShortUrl Create (12.6ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`, `short_code`) VALUES ('https://google.com', '2022-10-29 17:43:13.961952', '2022-10-29 17:43:13.961952', '0')[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[35m (65.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `create'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code'
+Completed 200 OK in 168ms (Views: 11.9ms | ActiveRecord: 82.2ms | Allocations: 10087)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 17:43:34 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code'
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 1.1ms | Allocations: 1889)
+
+
+Started HEAD "/1" for 172.18.0.1 at 2022-10-29 17:44:48 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mShortUrl Load (0.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`short_code` = '1' ORDER BY `short_urls`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/short_urls_controller.rb:22:in `show'
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 0.7ms | Allocations: 4453)
+
+
+  
+NoMethodError (undefined method `increase_count' for nil:NilClass):
+  
+app/controllers/short_urls_controller.rb:23:in `show'
+Started HEAD "/0" for 172.18.0.1 at 2022-10-29 17:44:55 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"id"=>"0"}
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`short_code` = '0' ORDER BY `short_urls`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/short_urls_controller.rb:22:in `show'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms | Allocations: 1378)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `visit_count`):
+  
+app/models/short_url.rb:33:in `increase_count'
+app/controllers/short_urls_controller.rb:23:in `show'
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (1.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (1.7ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls`[0m
+  [1m[36mShortUrl Destroy (27.6ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 4[0m
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 18:00:30 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code_generator'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+  [1m[36mShortUrl Create (0.5ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`, `short_code`) VALUES ('https://google.com', '2022-10-29 18:00:30.298736', '2022-10-29 18:00:30.298736', '0')[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+  [1m[35m (38.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+Completed 200 OK in 69ms (Views: 4.4ms | ActiveRecord: 41.9ms | Allocations: 9295)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:00:41 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.4ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.4ms | Allocations: 1205)
+
+
+Started HEAD "/0" for 172.18.0.1 at 2022-10-29 18:01:04 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"id"=>"0"}
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`short_code` = '0' ORDER BY `short_urls`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/short_urls_controller.rb:27:in `show'
+  [1m[36mShortUrl Update All (26.1ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = COALESCE(`short_urls`.`click_count`, 0) + 1 WHERE `short_urls`.`id` = 5[0m
+  ↳ app/models/short_url.rb:33:in `increase_count'
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 26.7ms | Allocations: 6298)
+
+
+  
+NoMethodError (undefined method `url' for #<ShortUrl:0x00005575e4788a20>):
+  
+app/models/short_url.rb:34:in `increase_count'
+app/controllers/short_urls_controller.rb:28:in `show'
+Started HEAD "/0" for 172.18.0.1 at 2022-10-29 18:02:11 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#show as */*
+  Parameters: {"id"=>"0"}
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`short_code` = '0' ORDER BY `short_urls`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/short_urls_controller.rb:27:in `show'
+  [1m[36mShortUrl Update All (43.7ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = COALESCE(`short_urls`.`click_count`, 0) + 1 WHERE `short_urls`.`id` = 5[0m
+  ↳ app/models/short_url.rb:33:in `increase_count'
+Redirected to https://google.com
+Completed 302 Found in 70ms (ActiveRecord: 46.5ms | Allocations: 7894)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:07:35 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.4ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 7.6ms | ActiveRecord: 2.8ms | Allocations: 6960)
+
+
+Started HEAD "/0" for 172.18.0.1 at 2022-10-29 18:07:44 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"id"=>"0"}
+  [1m[36mShortUrl Load (1.3ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`short_code` = '0' ORDER BY `short_urls`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/short_urls_controller.rb:27:in `show'
+  [1m[36mShortUrl Update All (19.9ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = COALESCE(`short_urls`.`click_count`, 0) + 1 WHERE `short_urls`.`id` = 5[0m
+  ↳ app/models/short_url.rb:33:in `increase_count'
+Redirected to https://google.com
+Completed 302 Found in 80ms (ActiveRecord: 21.2ms | Allocations: 2047)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:08:00 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1164)
+
+
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 18:18:09 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"nope!"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code_generator'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+  [1m[36mShortUrl Create (0.4ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`, `short_code`) VALUES ('nope!', '2022-10-29 18:18:09.855326', '2022-10-29 18:18:09.855326', '1')[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+  [1m[35m (10.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+Completed 200 OK in 36ms (Views: 1.2ms | ActiveRecord: 13.6ms | Allocations: 9294)
+
+
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (1.1ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (1.3ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls`[0m
+  [1m[36mShortUrl Destroy (25.2ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 5[0m
+  [1m[36mShortUrl Destroy (10.1ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 6[0m
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:21:44 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 11[0m
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.1ms | Allocations: 4240)
+
+
+  [1m[36mCACHE ShortUrl Load (0.0ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 11[0m
+  
+NoMethodError (undefined method `public_attributes' for #<ActiveRecord::Relation []>
+Did you mean?  bind_attribute):
+  
+app/controllers/short_urls_controller.rb:8:in `index'
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:25:08 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 11[0m
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.2ms | Allocations: 4381)
+
+
+  [1m[36mCACHE ShortUrl Load (0.0ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 11[0m
+  
+NoMethodError (undefined method `public_attributes' for #<ActiveRecord::Relation []>
+Did you mean?  bind_attribute):
+  
+app/controllers/short_urls_controller.rb:8:in `index'
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:28:38 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+No template found for ShortUrlsController#index, rendering head :no_content
+Completed 204 No Content in 16ms (ActiveRecord: 1.7ms | Allocations: 3785)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:28:42 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+No template found for ShortUrlsController#index, rendering head :no_content
+Completed 204 No Content in 4ms (ActiveRecord: 0.5ms | Allocations: 907)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:29:19 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 6)
+Completed 200 OK in 10ms (Views: 1.4ms | ActiveRecord: 1.7ms | Allocations: 2578)
+
+
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 18:29:31 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"nope!"}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 4819)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:29:45 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 925)
+
+
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 18:29:52 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:10:in `short_code_generator'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+  [1m[36mShortUrl Create (48.7ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`, `short_code`) VALUES ('https://google.com', '2022-10-29 18:29:52.440610', '2022-10-29 18:29:52.440610', '0')[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:15:in `create'
+Completed 200 OK in 87ms (Views: 4.4ms | ActiveRecord: 60.8ms | Allocations: 3528)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:29:56 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.5ms | Allocations: 1410)
+
+
+  
+ArgumentError ('{"full_url"=>"https://google.com"}' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+  
+app/controllers/short_urls_controller.rb:8:in `index'
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:35:26 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 11[0m
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.3ms | Allocations: 8946)
+
+
+  [1m[36mCACHE ShortUrl Load (0.0ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 11[0m
+  
+NoMethodError (undefined method `public_attributes' for #<ShortUrl::ActiveRecord_Relation:0x0000555942f5b658>
+Did you mean?  bind_attribute):
+  
+app/controllers/short_urls_controller.rb:8:in `index'
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:39:11 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.`full_url`, code, `short_urls`.`click_count` FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.2ms | Allocations: 3264)
+
+
+  
+ActiveRecord::StatementInvalid (Mysql2::Error: Unknown column 'code' in 'field list'):
+  
+app/controllers/short_urls_controller.rb:8:in `index'
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:40:00 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.`full_url`, `short_urls`.`short_code`, `short_urls`.`click_count` FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 8.3ms | ActiveRecord: 2.6ms | Allocations: 6915)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 18:43:16 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.4ms)[0m  [1m[34mSELECT `short_urls`.`id`, `short_urls`.`full_url`, `short_urls`.`short_code`, `short_urls`.`click_count` FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+Completed 200 OK in 17ms (Views: 7.5ms | ActiveRecord: 2.4ms | Allocations: 6924)
+
+
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 18:43:29 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"nope!"}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 309)
+
+
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 18:44:27 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"nope!"}
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 2.1ms | Allocations: 8629)
+
+
+  
+NoMethodError (undefined method `Full url is not a valid url' for #<ShortUrl:0x0000560e32f4fc68>):
+  
+app/models/short_url.rb:53:in `validate_full_url'
+app/controllers/short_urls_controller.rb:13:in `create'
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 18:46:34 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"nope!"}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 2.2ms | Allocations: 7131)
+
+
+  
+NoMethodError (undefined method `append' for #<ActiveModel::Errors:0x00005600d8a257b8>):
+  
+app/models/short_url.rb:53:in `validate_full_url'
+app/controllers/short_urls_controller.rb:13:in `create'
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 20:44:05 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (21.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"nope!"}
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 6226)
+
+
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 20:46:16 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (41.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"nope!"}
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 19.1ms | Allocations: 6028)
+
+
+Started GET "/" for 172.18.0.1 at 2022-10-29 21:12:44 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (16.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.`id`, `short_urls`.`full_url`, `short_urls`.`short_code`, `short_urls`.`click_count` FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 10.5ms | ActiveRecord: 2.6ms | Allocations: 6982)
+
+
+Started HEAD "/0" for 172.18.0.1 at 2022-10-29 21:13:00 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"id"=>"0"}
+  [1m[36mShortUrl Load (1.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`short_code` = '0' ORDER BY `short_urls`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/short_urls_controller.rb:30:in `show'
+  [1m[36mShortUrl Update All (17.7ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = COALESCE(`short_urls`.`click_count`, 0) + 1 WHERE `short_urls`.`id` = 7[0m
+  ↳ app/models/short_url.rb:42:in `increase_count'
+Redirected to https://google.com
+Completed 302 Found in 93ms (ActiveRecord: 19.4ms | Allocations: 2041)
+
+
+  [1m[35m (43.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShortUrl Create (49.2ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`) VALUES ('https://www.test.rspec', '2022-10-29 21:22:04.397034', '2022-10-29 21:22:04.397034')[0m
+  [1m[35m (14.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mShortUrl Load (13.3ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[35m (13.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (17.4ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (1.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (23.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (2.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (1.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls`[0m
+  [1m[36mShortUrl Destroy (63.8ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 7[0m
+  [1m[36mShortUrl Destroy (19.4ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 8[0m
+  [1m[35m (18.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-29 21:35:50 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (2.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (14.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://www.test.rspec"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/short_url.rb:24:in `short_code_generator'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:24:in `short_code_generator'
+  [1m[36mShortUrl Create (0.5ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`, `short_code`) VALUES ('https://www.test.rspec', '2022-10-29 21:35:51.271771', '2022-10-29 21:35:51.271771', '0')[0m
+  ↳ app/controllers/short_urls_controller.rb:18:in `create'
+  [1m[35m (59.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:18:in `create'
+Completed 200 OK in 104ms (Views: 2.2ms | ActiveRecord: 63.8ms | Allocations: 9304)
+
+
+Started HEAD "/0" for 172.18.0.1 at 2022-10-29 21:36:05 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#show as */*
+  Parameters: {"id"=>"0"}
+  [1m[36mShortUrl Load (0.8ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`short_code` = '0' ORDER BY `short_urls`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/short_urls_controller.rb:30:in `show'
+  [1m[36mShortUrl Update All (19.6ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`click_count` = COALESCE(`short_urls`.`click_count`, 0) + 1 WHERE `short_urls`.`id` = 9[0m
+  ↳ app/models/short_url.rb:47:in `increase_count'
+Redirected to https://www.test.rspec
+Completed 302 Found in 52ms (ActiveRecord: 20.4ms | Allocations: 2067)
+
+
