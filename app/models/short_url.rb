@@ -3,6 +3,7 @@ class ShortUrl < ApplicationRecord
   CHARACTERS = [*'0'..'9', *'a'..'z', *'A'..'Z'].freeze
 
   before_create :short_code_generator
+  after_create :call_update_title_job
   validate :validate_full_url
 
   # public_attributes was created because
@@ -15,6 +16,7 @@ class ShortUrl < ApplicationRecord
       short_code: self.short_code,
       full_url: self.full_url,
       click_count: self.click_count,
+      title: self.title,
     }
   end
 
@@ -46,6 +48,12 @@ class ShortUrl < ApplicationRecord
   def increase_count
     self.increment!(:click_count)
 		self.full_url
+  end
+
+  # call_update_title_job does what it says
+  # and is called after create automatically
+  def call_update_title_job
+    UpdateTitleJob.perform_later(self)
   end
 
   private
