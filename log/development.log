@@ -1268,3 +1268,58 @@ Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.4ms | Allocations: 1256)
   [1m[36mShortUrl Load (2.3ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
   [1m[36mShortUrl Load (0.9ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls`[0m
   [1m[36mShortUrl Destroy (35.9ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 17[0m
+Started GET "/" for 172.18.0.1 at 2022-10-30 02:27:17 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.5ms)[0m  [1m[34mSELECT `short_urls`.`id`, `short_urls`.`full_url`, `short_urls`.`short_code`, `short_urls`.`click_count`, `short_urls`.`title` FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `index'
+Completed 200 OK in 12ms (Views: 2.6ms | ActiveRecord: 1.6ms | Allocations: 2458)
+
+
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-30 02:27:33 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"nope!"}
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 4.5ms | Allocations: 5387)
+
+
+Started POST "/short_urls.json" for 172.18.0.1 at 2022-10-30 02:27:40 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#create as JSON
+  Parameters: {"full_url"=>"https://google.com"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/short_url.rb:26:in `short_code_generator'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(`short_urls`.`short_code`) FROM `short_urls`[0m
+  ↳ app/models/short_url.rb:26:in `short_code_generator'
+  [1m[36mShortUrl Create (0.7ms)[0m  [1m[32mINSERT INTO `short_urls` (`full_url`, `created_at`, `updated_at`, `short_code`) VALUES ('https://google.com', '2022-10-30 02:27:40.796988', '2022-10-30 02:27:40.796988', '0')[0m
+  ↳ app/controllers/short_urls_controller.rb:21:in `create'
+[ActiveJob] Enqueued UpdateTitleJob (Job ID: 958db32f-3aea-4b13-8e92-1e9db7b7656c) to Resque(default) with arguments: #<GlobalID:0x0000555eeb131880 @uri=#<URI::GID gid://short-test/ShortUrl/18>>
+  [1m[35m (42.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/short_urls_controller.rb:21:in `create'
+Completed 200 OK in 468ms (Views: 2.3ms | ActiveRecord: 43.9ms | Allocations: 14555)
+
+
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` WHERE `short_urls`.`id` = 18 LIMIT 1[0m
+[ActiveJob] [UpdateTitleJob] [958db32f-3aea-4b13-8e92-1e9db7b7656c] Performing UpdateTitleJob (Job ID: 958db32f-3aea-4b13-8e92-1e9db7b7656c) from Resque(default) enqueued at 2022-10-30T02:27:41Z with arguments: #<GlobalID:0x000055607307f660 @uri=#<URI::GID gid://short-test/ShortUrl/18>>
+[ActiveJob] [UpdateTitleJob] [958db32f-3aea-4b13-8e92-1e9db7b7656c]   [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [UpdateTitleJob] [958db32f-3aea-4b13-8e92-1e9db7b7656c]   ↳ app/jobs/update_title_job.rb:19:in `block in perform'
+[ActiveJob] [UpdateTitleJob] [958db32f-3aea-4b13-8e92-1e9db7b7656c]   [1m[36mShortUrl Update (0.8ms)[0m  [1m[33mUPDATE `short_urls` SET `short_urls`.`title` = 'Google', `short_urls`.`updated_at` = '2022-10-30 02:27:45.285209' WHERE `short_urls`.`id` = 18[0m
+[ActiveJob] [UpdateTitleJob] [958db32f-3aea-4b13-8e92-1e9db7b7656c]   ↳ app/jobs/update_title_job.rb:19:in `block in perform'
+[ActiveJob] [UpdateTitleJob] [958db32f-3aea-4b13-8e92-1e9db7b7656c]   [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [UpdateTitleJob] [958db32f-3aea-4b13-8e92-1e9db7b7656c]   ↳ app/jobs/update_title_job.rb:19:in `block in perform'
+[ActiveJob] [UpdateTitleJob] [958db32f-3aea-4b13-8e92-1e9db7b7656c] Performed UpdateTitleJob (Job ID: 958db32f-3aea-4b13-8e92-1e9db7b7656c) from Resque(default) in 741.56ms
+Started GET "/" for 172.18.0.1 at 2022-10-30 02:27:49 +0000
+Cannot render console from 172.18.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ShortUrlsController#index as */*
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.`id`, `short_urls`.`full_url`, `short_urls`.`short_code`, `short_urls`.`click_count`, `short_urls`.`title` FROM `short_urls` ORDER BY `short_urls`.`click_count` DESC LIMIT 100[0m
+  ↳ app/controllers/short_urls_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.6ms | Allocations: 1215)
+
+
+  [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mShortUrl Load (1.2ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls` LIMIT 11[0m
+  [1m[36mShortUrl Load (0.6ms)[0m  [1m[34mSELECT `short_urls`.* FROM `short_urls`[0m
+  [1m[36mShortUrl Destroy (13.9ms)[0m  [1m[31mDELETE FROM `short_urls` WHERE `short_urls`.`id` = 18[0m

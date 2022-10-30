@@ -1,3 +1,17 @@
+# Shortening algorithm
+
+    Since the url needs to be as short as possible and relative to the
+    number of links in the system I thought that it was a good idea to:
+    1) Count the number of links that are already stored and the number of
+    characters in CHARACTERS list
+    2) Select each character of the code by using modulo operation on the
+    number of links already stored and the number of characters in the CHARACTERS
+    list with this operation we get the position of the character need to be used
+    so that we can concatenate it to the new short_code
+    3) Repeat (2) and after every concatenation reduce the number of records
+    dividing it by the number of characters and subtracting 1 to that, this process
+    is repeated until the number of links reaches 0 
+
 # Intial Setup
 
     docker-compose build

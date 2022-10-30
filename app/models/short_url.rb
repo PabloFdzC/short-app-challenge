@@ -24,17 +24,19 @@ class ShortUrl < ApplicationRecord
     code = ""
     # First we need to count how many records we have
     totRecords = ShortUrl.count(:short_code)
-    # Based on the previous value we will know how many
-    # letters we will need for the shortened url
     numberChars = CHARACTERS.length()
-    numberLetters = totRecords / numberChars
-    while numberLetters >= 0
+    while totRecords >= 0
       # To know which letter we will use we can
       # use modulo operation 
       position = totRecords % numberChars
       code.concat(CHARACTERS[position])
-      totRecords = totRecords-position
-      numberLetters = numberLetters - 1
+      # We reduce the number of records by 
+      # using the following formula
+      # the division is like skipping all the
+      # characters we have used in a specific position
+      # and -1 is to choose the next character to
+      # use so they do not repeat
+      totRecords = totRecords/numberChars-1
     end
     self.short_code = code
   end
